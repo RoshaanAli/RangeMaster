@@ -15,7 +15,6 @@ const CongratsModal = ({visible, closeModal}) => {
     <Modal isVisible={visible} onBackdropPress={() => closeModal(false)}>
       <View
         style={{
-          flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
         }}>
@@ -23,7 +22,7 @@ const CongratsModal = ({visible, closeModal}) => {
           style={{
             ...styles.con,
             backgroundColor: 'white',
-            height: responsiveHeight(40),
+            height: responsiveHeight(32),
           }}>
           <Text style={styles.heading}>Congratulations</Text>
           <View

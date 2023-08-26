@@ -96,5 +96,6 @@ const styles = StyleSheet.create({
     marginBottom: responsiveHeight(1.5),
     borderWidth: 1,
     borderColor: 'lightgray',
+    alignItems:"center"
   },
 });

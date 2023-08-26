@@ -39,7 +39,6 @@ const ShareLogModal = ({visible, closeModal}) => {
     <Modal isVisible={visible} onBackdropPress={() => closeModal(false)}>
       <View
         style={{
-          flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
         }}>
@@ -47,7 +46,7 @@ const ShareLogModal = ({visible, closeModal}) => {
           style={{
             ...styles.con,
             backgroundColor: 'white',
-            height: responsiveHeight(48),
+            height: responsiveHeight(40),
           }}>
           <Text style={styles.heading}>Share Log</Text>
           <View
