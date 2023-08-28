@@ -38,12 +38,14 @@ const InputField = ({
     return;
   },
   passedStyle,
+  passedContainerStyle,
   editable = true,
 }) => {
   return (
     <View
       style={{
         ...styles.container,
+        ...passedContainerStyle,
         alignItems: columns ? 'flex-start' : 'center',
       }}>
       {icon ? (

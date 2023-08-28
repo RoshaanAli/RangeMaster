@@ -60,7 +60,7 @@ const ExerciseVideoScreen = ({navigation, route}) => {
       </TouchableOpacity>
       <Btn
         text={'Start your Exercise Now'}
-        call={() => {navigation.navigate("showFeedback")}}
+        call={() => {navigation.navigate("showTimer")}}
         passedStyle={{
           marginTop:responsiveHeight(5)
         }}

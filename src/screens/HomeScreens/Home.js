@@ -16,8 +16,8 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import colors from '../../assets/colors/colors';
 import LinearGradient from 'react-native-linear-gradient';
+import colors from '../../assets/colors/colors';
 import NotFound from '../../components/NotFound';
 
 const ExerciseCards = () => {
@@ -73,7 +73,7 @@ const Home = ({navigation}) => {
       headerRight: () => (
         <View
           style={{
-            width: responsiveWidth(13),
+            width: responsiveWidth(10),
           }}>
           <TouchableOpacity>
             <Ionicons
@@ -148,7 +148,7 @@ const Home = ({navigation}) => {
           bottom: responsiveHeight(4),
           right: '10%',
         }}>
-        <TouchableOpacity style={styles.floatBtn}>
+        <TouchableOpacity onPress={()=>navigation.navigate("showRemainder")} style={styles.floatBtn}>
           <AntDesign name="plus" size={responsiveFontSize(4)} color={'white'} />
         </TouchableOpacity>
         <Text style={{fontSize: responsiveFontSize(1.7)}}>Remainder</Text>
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     width: responsiveFontSize(15),
   },
   headerLeft: {
-    width: responsiveWidth(13),
+    width: responsiveWidth(10),
     justifyContent: 'flex-end',
     alignContent: 'flex-end',
     alignItems: 'flex-end',
