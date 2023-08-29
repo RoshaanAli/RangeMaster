@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -9,12 +9,14 @@ import {
 import colors from '../../assets/colors/colors';
 import InputField from '../../components/InputField';
 import Btn from '../../components/Btn';
+import {Calendar, LocaleConfig, Agenda} from 'react-native-calendars';
 
 const RemainderScreen = ({navigation}) => {
   const [title, setTitle] = useState('');
   const [selectedCalendarType, setSelectedCalendarType] = useState('');
+  const [selectedDate, setSelectedDate] = useState("")
   return (
-    <View style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
       <TouchableOpacity
         style={styles.backBtn}
         onPress={() => navigation.goBack()}>
@@ -86,11 +88,20 @@ const RemainderScreen = ({navigation}) => {
         )}
       </View>
       <Text style={styles.head}>Selected Date</Text>
-      <Btn
-        text={'Save Remainder'}
-        call={() => alert('In Progress')}
+      <Calendar
+        onDayPress={day => {
+          console.log('selected day', day.dateString);
+          setSelectedDate(day.dateString)
+        }}
+        markedDates={{
+          [selectedDate] : {selected: true, marked: true, selectedColor: colors.themeblue},
+        }}
+        style={{
+          marginTop:responsiveHeight(3)
+        }}
       />
-    </View>
+      <Btn text={'Save Remainder'} call={() => alert('In Progress')} passedStyle={{marginVertical:responsiveHeight(3)}} />
+    </ScrollView>
   );
 };
 
@@ -98,7 +109,7 @@ export default RemainderScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     // alignItems: 'center',
     backgroundColor: 'white',
     paddingHorizontal: '5%',
